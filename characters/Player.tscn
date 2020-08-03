@@ -1,8 +1,20 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://characters/Player.gd" type="Script" id=1]
 [ext_resource path="res://ui/keyrenderlowres.png" type="Texture" id=2]
 [ext_resource path="res://ui/BlankSpotsRegular-dB4l.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://sfx/PlayRandomSound.gd" type="Script" id=4]
+[ext_resource path="res://sfx/footsteps/footstep08.wav" type="AudioStream" id=5]
+[ext_resource path="res://sfx/footsteps/footstep03.wav" type="AudioStream" id=6]
+[ext_resource path="res://sfx/footsteps/footstep09.wav" type="AudioStream" id=7]
+[ext_resource path="res://sfx/footsteps/footstep06.wav" type="AudioStream" id=8]
+[ext_resource path="res://sfx/footsteps/footstep04.wav" type="AudioStream" id=9]
+[ext_resource path="res://sfx/footsteps/footstep02.wav" type="AudioStream" id=10]
+[ext_resource path="res://sfx/footsteps/footstep00.wav" type="AudioStream" id=11]
+[ext_resource path="res://sfx/footsteps/footstep01.wav" type="AudioStream" id=12]
+[ext_resource path="res://sfx/footsteps/footstep07.wav" type="AudioStream" id=13]
+[ext_resource path="res://sfx/metalClick.wav" type="AudioStream" id=14]
+[ext_resource path="res://sfx/handleCoins2.wav" type="AudioStream" id=15]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -10,6 +22,48 @@ radius = 0.5
 [sub_resource type="DynamicFont" id=2]
 size = 32
 font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "fadein"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [node name="Player" type="KinematicBody" groups=[
 "player",
@@ -267,5 +321,83 @@ __meta__ = {
 
 [node name="HideTimer" type="Timer" parent="CanvasLayer/GateLocked"]
 one_shot = true
+
+[node name="FootstepSounds" type="Spatial" parent="."]
+script = ExtResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="FootstepSounds"]
+stream = ExtResource( 11 )
+bus = "PlayerFootsteps"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="FootstepSounds"]
+stream = ExtResource( 12 )
+bus = "PlayerFootsteps"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="FootstepSounds"]
+stream = ExtResource( 10 )
+bus = "PlayerFootsteps"
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="FootstepSounds"]
+stream = ExtResource( 6 )
+bus = "PlayerFootsteps"
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="FootstepSounds"]
+stream = ExtResource( 9 )
+bus = "PlayerFootsteps"
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="FootstepSounds"]
+stream = ExtResource( 8 )
+bus = "PlayerFootsteps"
+
+[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="FootstepSounds"]
+stream = ExtResource( 13 )
+bus = "PlayerFootsteps"
+
+[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="FootstepSounds"]
+stream = ExtResource( 5 )
+bus = "PlayerFootsteps"
+
+[node name="AudioStreamPlayer9" type="AudioStreamPlayer" parent="FootstepSounds"]
+stream = ExtResource( 7 )
+bus = "PlayerFootsteps"
+
+[node name="LockSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = 2.0
+bus = "Sfx"
+
+[node name="KeyPickupSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+volume_db = 2.0
+bus = "Sfx"
+
+[node name="DieSound" type="AudioStreamPlayer" parent="."]
+bus = "Sfx"
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="You Died" type="Label" parent="CanvasLayer2"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -278.891
+margin_top = -16.5
+margin_right = 53.1095
+margin_bottom = 16.5
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 2 )
+text = "You Died! Press R to restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer2/You Died"]
+autoplay = "idle"
+anims/fadein = SubResource( 3 )
+anims/idle = SubResource( 4 )
 [connection signal="timeout" from="CanvasLayer/DoorLocked/HideTimer" to="CanvasLayer/DoorLocked" method="hide"]
 [connection signal="timeout" from="CanvasLayer/GateLocked/HideTimer" to="CanvasLayer/GateLocked" method="hide"]

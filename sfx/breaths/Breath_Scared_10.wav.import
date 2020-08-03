@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Breath_Scared_10.wav-d239248e6876c1a229361f3f13f83032.sample"
+
+[deps]
+
+source_file="res://sfx/breaths/Breath_Scared_10.wav"
+dest_files=[ "res://.import/Breath_Scared_10.wav-d239248e6876c1a229361f3f13f83032.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

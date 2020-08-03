@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Gate_Open_00.wav-01c401e587cc191e1e2a70633aad9b20.sample"
+
+[deps]
+
+source_file="res://sfx/Gate_Open_00.wav"
+dest_files=[ "res://.import/Gate_Open_00.wav-01c401e587cc191e1e2a70633aad9b20.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -6,6 +6,8 @@
 radius = 0.375911
 
 [node name="Key" type="StaticBody"]
+collision_layer = 2147483656
+collision_mask = 0
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )

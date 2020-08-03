@@ -1,7 +1,12 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=2]
+[gd_resource type="AudioBusLayout" load_steps=3 format=2]
 
 [sub_resource type="AudioEffectRecord" id=1]
 resource_name = "Record"
+
+[sub_resource type="AudioEffectReverb" id=3]
+resource_name = "Reverb"
+room_size = 0.39
+damping = 1.0
 
 [resource]
 bus/1/name = "Record"
@@ -12,3 +17,23 @@ bus/1/volume_db = 0.0
 bus/1/send = "Master"
 bus/1/effect/0/effect = SubResource( 1 )
 bus/1/effect/0/enabled = true
+bus/2/name = "Sfx"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = "Master"
+bus/3/name = "PlayerFootsteps"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = -5.04224
+bus/3/send = "Sfx"
+bus/3/effect/0/effect = SubResource( 3 )
+bus/3/effect/0/enabled = true
+bus/4/name = "MonsterBreath"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = 0.0
+bus/4/send = "Sfx"
