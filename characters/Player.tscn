@@ -1,0 +1,271 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://characters/Player.gd" type="Script" id=1]
+[ext_resource path="res://ui/keyrenderlowres.png" type="Texture" id=2]
+[ext_resource path="res://ui/BlankSpotsRegular-dB4l.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.5
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 3 )
+
+[node name="Player" type="KinematicBody" groups=[
+"player",
+]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource( 1 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+light_energy = 0.1
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+
+[node name="SpotLight" type="SpotLight" parent="Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.297658, -0.458558, 0 )
+shadow_enabled = true
+shadow_reverse_cull_face = true
+spot_range = 58.5674
+spot_attenuation = 1.62451
+spot_angle = 31.1
+
+[node name="RayCastInteractable" type="RayCast" parent="Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -2.5 )
+collision_mask = 9
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0 )
+shape = SubResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Keys" type="GridContainer" parent="CanvasLayer"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 13.0813
+margin_top = -111.352
+margin_right = 273.081
+margin_bottom = 16.6476
+columns = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyTexture" type="TextureRect" parent="CanvasLayer/Keys"]
+visible = false
+margin_right = 128.0
+margin_bottom = 128.0
+texture = ExtResource( 2 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyTexture2" type="TextureRect" parent="CanvasLayer/Keys"]
+visible = false
+margin_left = 132.0
+margin_right = 260.0
+margin_bottom = 128.0
+texture = ExtResource( 2 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyTexture3" type="TextureRect" parent="CanvasLayer/Keys"]
+visible = false
+margin_left = 264.0
+margin_right = 392.0
+margin_bottom = 128.0
+texture = ExtResource( 2 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyTexture4" type="TextureRect" parent="CanvasLayer/Keys"]
+visible = false
+margin_left = 396.0
+margin_right = 524.0
+margin_bottom = 128.0
+texture = ExtResource( 2 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyTexture5" type="TextureRect" parent="CanvasLayer/Keys"]
+visible = false
+margin_left = 528.0
+margin_right = 656.0
+margin_bottom = 128.0
+texture = ExtResource( 2 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyTexture6" type="TextureRect" parent="CanvasLayer/Keys"]
+visible = false
+margin_left = 660.0
+margin_right = 788.0
+margin_bottom = 128.0
+texture = ExtResource( 2 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyTexture7" type="TextureRect" parent="CanvasLayer/Keys"]
+visible = false
+margin_left = 792.0
+margin_right = 920.0
+margin_bottom = 128.0
+texture = ExtResource( 2 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyTexture8" type="TextureRect" parent="CanvasLayer/Keys"]
+visible = false
+margin_left = 924.0
+margin_right = 1052.0
+margin_bottom = 128.0
+texture = ExtResource( 2 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyTexture9" type="TextureRect" parent="CanvasLayer/Keys"]
+visible = false
+margin_left = 1056.0
+margin_right = 1184.0
+margin_bottom = 128.0
+texture = ExtResource( 2 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyTexture10" type="TextureRect" parent="CanvasLayer/Keys"]
+visible = false
+margin_left = 1188.0
+margin_right = 1316.0
+margin_bottom = 128.0
+texture = ExtResource( 2 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyTexture11" type="TextureRect" parent="CanvasLayer/Keys"]
+visible = false
+margin_top = 132.0
+margin_right = 128.0
+margin_bottom = 260.0
+texture = ExtResource( 2 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PickupKey" type="Label" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -201.681
+margin_top = -118.323
+margin_right = 50.3193
+margin_bottom = -85.3234
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 2 )
+text = "Press E to pickup Key"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OpenDoor" type="Label" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -198.681
+margin_top = -118.323
+margin_right = 47.3193
+margin_bottom = -85.3234
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 2 )
+text = "Press E to open Door"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DoorLocked" type="Label" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -195.681
+margin_top = -184.249
+margin_right = 44.3193
+margin_bottom = -151.249
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 2 )
+text = "Door is locked..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HideTimer" type="Timer" parent="CanvasLayer/DoorLocked"]
+one_shot = true
+
+[node name="OpenGate" type="Label" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -198.681
+margin_top = -118.323
+margin_right = 47.3193
+margin_bottom = -85.3234
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 2 )
+text = "Press E to open Gate"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GateLocked" type="Label" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -195.681
+margin_top = -184.249
+margin_right = 44.3193
+margin_bottom = -151.249
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 2 )
+text = "Gate is locked..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HideTimer" type="Timer" parent="CanvasLayer/GateLocked"]
+one_shot = true
+[connection signal="timeout" from="CanvasLayer/DoorLocked/HideTimer" to="CanvasLayer/DoorLocked" method="hide"]
+[connection signal="timeout" from="CanvasLayer/GateLocked/HideTimer" to="CanvasLayer/GateLocked" method="hide"]
