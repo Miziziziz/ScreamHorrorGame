@@ -1,0 +1,170 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://ui/MainFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://ui/BlankSpotsRegular-dB4l.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://levels/MainMenu.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=2]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 64
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 128
+font_data = ExtResource( 2 )
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainScreen" type="GridContainer" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 128.289
+margin_top = -242.752
+margin_right = 245.289
+margin_bottom = -177.752
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="Button" parent="MainScreen"]
+margin_right = 238.0
+margin_bottom = 65.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
+text = "Play"
+
+[node name="MakingOf" type="Button" parent="MainScreen"]
+margin_top = 69.0
+margin_right = 238.0
+margin_bottom = 134.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
+text = "Making Of"
+
+[node name="Credits" type="Button" parent="MainScreen"]
+margin_top = 138.0
+margin_right = 238.0
+margin_bottom = 203.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
+text = "Credits"
+
+[node name="Exit" type="Button" parent="MainScreen"]
+margin_top = 207.0
+margin_right = 238.0
+margin_bottom = 272.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditsScreen" type="Control" parent="."]
+visible = false
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 66.468
+margin_top = -196.777
+margin_right = 106.468
+margin_bottom = -156.777
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CreditsScreen"]
+margin_left = 79.0
+margin_right = 624.0
+margin_bottom = 217.0
+text = "-Credits-
+Made by Miziziziz
+statue 3d model from: https://opengameart.org/content/gravestones
+furniture models: https://opengameart.org/content/3td-furniture-pack
+key model: https://opengameart.org/content/key-collection
+metal gate model: https://opengameart.org/content/simple-jail-door
+spiked dungeon door: https://opengameart.org/content/spiked-dungeon-door
+metal screech, breaths: https://opengameart.org/content/horror-sound-effects-library
+footsteps and door: https://opengameart.org/content/50-rpg-sound-effects
+textures from: https://3dtextures.me
+"
+
+[node name="Back" type="Button" parent="CreditsScreen"]
+margin_left = 66.1807
+margin_top = 187.509
+margin_right = 304.181
+margin_bottom = 252.509
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -902.0
+margin_top = 54.0
+margin_right = -70.0
+margin_bottom = 478.0
+custom_fonts/font = SubResource( 1 )
+text = "Forlorn Screams of Agony Echoing Forevermore"
+autowrap = true
+
+[node name="Signature" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 28.3162
+margin_top = -68.8673
+margin_right = 282.316
+margin_bottom = -35.8673
+custom_fonts/font = ExtResource( 1 )
+text = "Created by Miziziziz"

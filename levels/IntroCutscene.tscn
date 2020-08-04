@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ui/MainFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://levels/PressEnterToContinue.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fadein"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[node name="IntroCutscene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -472.5
+margin_top = -124.5
+margin_right = 472.5
+margin_bottom = 124.5
+custom_fonts/font = ExtResource( 1 )
+text = "A dark beast of shadow lurks in this haunted labyrinth. 
+   
+It lays its shroud across the eyes of those who enter.
+   
+Only the screams of a living creature provide relief from it's suffocating presence
+------------------------------------------------
+Press Enter to start"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "fadein"
+anims/fadein = SubResource( 1 )

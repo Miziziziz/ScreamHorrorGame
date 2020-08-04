@@ -1,8 +1,8 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://characters/Player.gd" type="Script" id=1]
 [ext_resource path="res://ui/keyrenderlowres.png" type="Texture" id=2]
-[ext_resource path="res://ui/BlankSpotsRegular-dB4l.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://ui/MainFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://sfx/PlayRandomSound.gd" type="Script" id=4]
 [ext_resource path="res://sfx/footsteps/footstep08.wav" type="AudioStream" id=5]
 [ext_resource path="res://sfx/footsteps/footstep03.wav" type="AudioStream" id=6]
@@ -19,11 +19,7 @@
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
 
-[sub_resource type="DynamicFont" id=2]
-size = 32
-font_data = ExtResource( 3 )
-
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "fadein"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
@@ -50,7 +46,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "idle"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
@@ -241,7 +237,7 @@ margin_top = -118.323
 margin_right = 50.3193
 margin_bottom = -85.3234
 rect_scale = Vector2( 2, 2 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Press E to pickup Key"
 align = 1
 __meta__ = {
@@ -259,7 +255,7 @@ margin_top = -118.323
 margin_right = 47.3193
 margin_bottom = -85.3234
 rect_scale = Vector2( 2, 2 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Press E to open Door"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -276,7 +272,7 @@ margin_top = -184.249
 margin_right = 44.3193
 margin_bottom = -151.249
 rect_scale = Vector2( 2, 2 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Door is locked..."
 __meta__ = {
 "_edit_use_anchors_": false
@@ -296,7 +292,7 @@ margin_top = -118.323
 margin_right = 47.3193
 margin_bottom = -85.3234
 rect_scale = Vector2( 2, 2 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Press E to open Gate"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -313,7 +309,7 @@ margin_top = -184.249
 margin_right = 44.3193
 margin_bottom = -151.249
 rect_scale = Vector2( 2, 2 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Gate is locked..."
 __meta__ = {
 "_edit_use_anchors_": false
@@ -389,7 +385,7 @@ margin_top = -16.5
 margin_right = 53.1095
 margin_bottom = 16.5
 rect_scale = Vector2( 2, 2 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "You Died! Press R to restart"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -397,7 +393,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer2/You Died"]
 autoplay = "idle"
-anims/fadein = SubResource( 3 )
-anims/idle = SubResource( 4 )
+anims/fadein = SubResource( 2 )
+anims/idle = SubResource( 3 )
 [connection signal="timeout" from="CanvasLayer/DoorLocked/HideTimer" to="CanvasLayer/DoorLocked" method="hide"]
 [connection signal="timeout" from="CanvasLayer/GateLocked/HideTimer" to="CanvasLayer/GateLocked" method="hide"]

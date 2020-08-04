@@ -25,7 +25,8 @@ func _input(event):
 
 func _process(_delta):
 	if Input.is_action_just_pressed("exit"):
-		get_tree().quit()
+#		get_tree().quit()
+		LevelManager.load_main_menu()
 	if Input.is_action_just_pressed("restart") and dead:
 		get_tree().reload_current_scene()
 	
@@ -41,6 +42,7 @@ func _process(_delta):
 			elif "Door" in coll.name:
 				if key_count > 0:
 					use_key()
+					LevelManager.load_next_level()
 				else:
 					$CanvasLayer/DoorLocked.show()
 					$CanvasLayer/DoorLocked/HideTimer.start()
@@ -48,7 +50,7 @@ func _process(_delta):
 			elif "Gate" in coll.name:
 				if key_count > 0:
 					use_key()
-					coll.get_node("AnimationPlayer").play("open")
+					coll.open()
 				else:
 					$CanvasLayer/GateLocked.show()
 					$CanvasLayer/GateLocked/HideTimer.start()

@@ -11,8 +11,9 @@ const HIDE_IF_POWER_BELOW = 80
 onready var screen_cover = $CanvasLayer/ScreenCover
 
 var can_see = false
-export var playtest = false
+var playtest = true # set to true to use shift to scream
 func _ready():
+	screen_cover.show()
 	var idx = AudioServer.get_bus_index("Record")
 	effect = AudioServer.get_bus_effect(idx, 0)
 	effect.set_recording_active(true)
