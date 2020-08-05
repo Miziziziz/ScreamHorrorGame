@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Blood_Dripping_Loop_01.wav-d8192ee72715c11dfe101751168d5501.sample"
+
+[deps]
+
+source_file="res://sfx/death sounds/Blood_Dripping_Loop_01.wav"
+dest_files=[ "res://.import/Blood_Dripping_Loop_01.wav-d8192ee72715c11dfe101751168d5501.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://MicrophoneDbGetter.gd" type="Script" id=1]
 [ext_resource path="res://CreateWalls.gd" type="Script" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://environment/interactable/Key.tscn" type="PackedScene" id=15]
 [ext_resource path="res://environment/interactable/Gate.tscn" type="PackedScene" id=16]
 [ext_resource path="res://environment/interactable/Door.tscn" type="PackedScene" id=17]
+[ext_resource path="res://environment/OnPlayerEnter.tscn" type="PackedScene" id=18]
 
 [sub_resource type="AudioStreamMicrophone" id=1]
 
@@ -71,7 +72,7 @@ cell_center_y = false
 collision_layer = 0
 collision_mask = 0
 data = {
-"cells": PoolIntArray( 0, 0, 536870912, 3, 65533, 0, 4, 65533, 0, 5, 65533, 0, 0, 65534, 0, 1, 65534, 0, 2, 65534, 536870912, 3, 65534, 0, 4, 65534, 0, 5, 65534, 0, 6, 65534, 536870912, 7, 65534, 536870912, 0, 65535, 0, 3, 65535, 0, 4, 65535, 0, 5, 65535, 0 )
+"cells": PoolIntArray( 0, 0, 0, 3, 65533, 0, 4, 65533, 0, 5, 65533, 0, 0, 65534, 0, 1, 65534, 0, 2, 65534, 536870912, 3, 65534, 0, 4, 65534, 536870912, 5, 65534, 0, 6, 65534, -1073741824, 7, 65534, 0, 0, 65535, 0, 3, 65535, 0, 4, 65535, 0, 5, 65535, 0 )
 }
 __meta__ = {
 "_editor_clip_": 0,
@@ -131,5 +132,8 @@ transform = Transform( 0.97054, 0.087455, -0.224507, 0, 0.931799, 0.362975, 0.24
 wait_time = 0.001
 one_shot = true
 autostart = true
-[connection signal="opened" from="Interactables/Gate" to="Navigation/Monster" method="set_active"]
+
+[node name="OnPlayerEnter" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -6 )
 [connection signal="timeout" from="DebugLight/HideOnStartTimer" to="DebugLight" method="hide"]
+[connection signal="player_entered" from="OnPlayerEnter" to="Navigation/Monster" method="set_active"]

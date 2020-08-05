@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://characters/Player.gd" type="Script" id=1]
 [ext_resource path="res://ui/keyrenderlowres.png" type="Texture" id=2]
@@ -15,6 +15,18 @@
 [ext_resource path="res://sfx/footsteps/footstep07.wav" type="AudioStream" id=13]
 [ext_resource path="res://sfx/metalClick.wav" type="AudioStream" id=14]
 [ext_resource path="res://sfx/handleCoins2.wav" type="AudioStream" id=15]
+[ext_resource path="res://sfx/death sounds/yell11.wav" type="AudioStream" id=16]
+[ext_resource path="res://sfx/death sounds/radio_death.wav" type="AudioStream" id=17]
+[ext_resource path="res://sfx/death sounds/Blood_Dripping_Loop_00.wav" type="AudioStream" id=18]
+[ext_resource path="res://sfx/death sounds/Blood_Dripping_Loop_01.wav" type="AudioStream" id=19]
+[ext_resource path="res://sfx/death sounds/Stab_Knife_00.wav" type="AudioStream" id=20]
+[ext_resource path="res://sfx/death sounds/Stab_Knife_02.wav" type="AudioStream" id=21]
+[ext_resource path="res://sfx/death sounds/Blood_Dripping_Loop_02.wav" type="AudioStream" id=22]
+[ext_resource path="res://sfx/death sounds/Stab_Knife_01.wav" type="AudioStream" id=23]
+[ext_resource path="res://sfx/death sounds/Bonecrack_03.wav" type="AudioStream" id=24]
+[ext_resource path="res://sfx/death sounds/Bonecrack_02.wav" type="AudioStream" id=25]
+[ext_resource path="res://sfx/death sounds/Bonecrack_00.wav" type="AudioStream" id=26]
+[ext_resource path="res://sfx/death sounds/Bonecrack_01.wav" type="AudioStream" id=27]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -61,6 +73,154 @@ tracks/0/keys = {
 "values": [ false ]
 }
 
+[sub_resource type="Animation" id=4]
+resource_name = "deathsounds"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("MonsterScream:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PlayerScream:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BloodDrip:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( -0.1, 15.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BloodDrip2:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 5.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("BloodDrip3:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 13.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Stab:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Stab2:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Stab3:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("BoneCrack:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 1, 2.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("BoneCrack2:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 1.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("BoneCrack3:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 1.9 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("BoneCrack4:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 2.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
 [node name="Player" type="KinematicBody" groups=[
 "player",
 ]]
@@ -87,6 +247,7 @@ spot_angle = 31.1
 enabled = true
 cast_to = Vector3( 0, 0, -2.5 )
 collision_mask = 9
+collide_with_areas = true
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0 )
@@ -298,6 +459,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="NoteDisplay" type="Label" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -291.881
+margin_top = -390.281
+margin_right = 29.1189
+margin_bottom = -236.281
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = ExtResource( 3 )
+text = "rings of salt have proven effective at warding away evil spirits"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="GateLocked" type="Label" parent="CanvasLayer"]
 visible = false
 anchor_left = 0.5
@@ -367,9 +546,6 @@ stream = ExtResource( 15 )
 volume_db = 2.0
 bus = "Sfx"
 
-[node name="DieSound" type="AudioStreamPlayer" parent="."]
-bus = "Sfx"
-
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 2
 
@@ -395,5 +571,59 @@ __meta__ = {
 autoplay = "idle"
 anims/fadein = SubResource( 2 )
 anims/idle = SubResource( 3 )
+
+[node name="DeathSounds" type="Spatial" parent="."]
+
+[node name="MonsterScream" type="AudioStreamPlayer" parent="DeathSounds"]
+stream = ExtResource( 17 )
+bus = "Sfx"
+
+[node name="PlayerScream" type="AudioStreamPlayer" parent="DeathSounds"]
+stream = ExtResource( 16 )
+volume_db = 5.0
+bus = "Sfx"
+
+[node name="BloodDrip" type="AudioStreamPlayer" parent="DeathSounds"]
+stream = ExtResource( 18 )
+bus = "Sfx"
+
+[node name="BloodDrip2" type="AudioStreamPlayer" parent="DeathSounds"]
+stream = ExtResource( 19 )
+bus = "Sfx"
+
+[node name="BloodDrip3" type="AudioStreamPlayer" parent="DeathSounds"]
+stream = ExtResource( 22 )
+bus = "Sfx"
+
+[node name="Stab" type="AudioStreamPlayer" parent="DeathSounds"]
+stream = ExtResource( 20 )
+bus = "Sfx"
+
+[node name="Stab2" type="AudioStreamPlayer" parent="DeathSounds"]
+stream = ExtResource( 23 )
+bus = "Sfx"
+
+[node name="Stab3" type="AudioStreamPlayer" parent="DeathSounds"]
+stream = ExtResource( 21 )
+bus = "Sfx"
+
+[node name="BoneCrack" type="AudioStreamPlayer" parent="DeathSounds"]
+stream = ExtResource( 26 )
+bus = "Sfx"
+
+[node name="BoneCrack2" type="AudioStreamPlayer" parent="DeathSounds"]
+stream = ExtResource( 27 )
+bus = "Sfx"
+
+[node name="BoneCrack3" type="AudioStreamPlayer" parent="DeathSounds"]
+stream = ExtResource( 25 )
+bus = "Sfx"
+
+[node name="BoneCrack4" type="AudioStreamPlayer" parent="DeathSounds"]
+stream = ExtResource( 24 )
+bus = "Sfx"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DeathSounds"]
+anims/deathsounds = SubResource( 4 )
 [connection signal="timeout" from="CanvasLayer/DoorLocked/HideTimer" to="CanvasLayer/DoorLocked" method="hide"]
 [connection signal="timeout" from="CanvasLayer/GateLocked/HideTimer" to="CanvasLayer/GateLocked" method="hide"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://MicrophoneDbGetter.gd" type="Script" id=1]
 [ext_resource path="res://CreateWalls.gd" type="Script" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://environment/interactable/Key.tscn" type="PackedScene" id=15]
 [ext_resource path="res://environment/interactable/Gate.tscn" type="PackedScene" id=16]
 [ext_resource path="res://environment/interactable/Door.tscn" type="PackedScene" id=17]
+[ext_resource path="res://environment/Note.tscn" type="PackedScene" id=18]
 
 [sub_resource type="AudioStreamMicrophone" id=1]
 
@@ -24,6 +25,8 @@
 background_mode = 1
 
 [sub_resource type="NavigationMesh" id=3]
+vertices = PoolVector3Array( 2.8, 0.385111, -35.3, 2.8, 0.385111, -42.8, 1, 0.385111, -42.8, 1, 0.385111, -35.3, 3.7, 0.385111, -9.2, 10.9, 0.385111, -9.2, 10.9, 0.385111, -18.2, 2.8, 0.385111, -27.8, 2.8, 0.385111, -35.3, 1, 0.385111, -35.3, 1, 0.385111, -27.8, -6.8, 0.385111, -18.2, -6.8, 0.385111, -9.2, 0.1, 0.385111, -9.2, 3.7, 0.385111, -26.9, 2.8, 0.385111, -27.8, 1, 0.385111, -27.8, 0.1, 0.385111, -26.9, 10.9, 0.385111, -18.2, 10.9, 0.385111, -26.9, 3.7, 0.385111, -26.9, 0.1, 0.385111, -26.9, -6.8, 0.385111, -26.9, -6.8, 0.385111, -18.2, 1, 0.385111, -8.3, 1, 0.385111, 2.8, 2.8, 0.385111, 2.8, 2.8, 0.385111, -8.3, 3.7, 0.385111, -26.9, 0.1, 0.385111, -26.9, -6.8, 0.385111, -18.2, 0.1, 0.385111, -9.2, 3.7, 0.385111, -9.2, 10.9, 0.385111, -18.2, 0.1, 0.385111, -9.2, 1, 0.385111, -8.3, 2.8, 0.385111, -8.3, 3.7, 0.385111, -9.2 )
+polygons = [ PoolIntArray( 3, 2, 0 ), PoolIntArray( 0, 2, 1 ), PoolIntArray( 6, 5, 4 ), PoolIntArray( 10, 9, 7 ), PoolIntArray( 7, 9, 8 ), PoolIntArray( 11, 13, 12 ), PoolIntArray( 16, 15, 17 ), PoolIntArray( 17, 15, 14 ), PoolIntArray( 20, 19, 18 ), PoolIntArray( 23, 22, 21 ), PoolIntArray( 27, 26, 24 ), PoolIntArray( 24, 26, 25 ), PoolIntArray( 29, 28, 30 ), PoolIntArray( 30, 28, 33 ), PoolIntArray( 30, 33, 32 ), PoolIntArray( 30, 32, 31 ), PoolIntArray( 35, 34, 36 ), PoolIntArray( 36, 34, 37 ) ]
 agent/radius = 1.2
 agent/max_climb = 0.1
 
@@ -69,7 +72,7 @@ cell_center_y = false
 collision_layer = 0
 collision_mask = 0
 data = {
-"cells": PoolIntArray( 0, 0, -1610612736, 0, 65525, 0, 0, 65526, 0, 0, 65527, -1610612736, 0, 65528, -1073741824, 0, 65529, 0, 1, 65529, -1610612736, 2, 65529, -1610612736, 65534, 65529, 0, 65535, 65529, -1610612736, 0, 65530, 0, 1, 65530, 0, 2, 65530, -1610612736, 65534, 65530, 0, 65535, 65530, 0, 0, 65531, -1610612736, 1, 65531, -1610612736, 2, 65531, 0, 65534, 65531, 0, 65535, 65531, -1610612736, 0, 65532, -1610612736, 1, 65532, -1610612736, 2, 65532, 0, 65534, 65532, -1073741824, 65535, 65532, -1610612736, 0, 65533, -1610612736, 1, 65533, -1073741824, 2, 65533, 0, 65534, 65533, 0, 65535, 65533, 0, 0, 65534, 0, 0, 65535, 0 )
+"cells": PoolIntArray( 0, 0, -1610612736, 0, 65525, 0, 0, 65526, 0, 0, 65527, -1610612736, 0, 65528, 0, 0, 65529, -1610612736, 1, 65529, 0, 2, 65529, 0, 65534, 65529, 0, 65535, 65529, 0, 0, 65530, -1610612736, 1, 65530, 0, 2, 65530, 0, 65534, 65530, 0, 65535, 65530, -1610612736, 0, 65531, -1610612736, 1, 65531, -1073741824, 2, 65531, -1073741824, 65534, 65531, 0, 65535, 65531, 0, 0, 65532, 0, 1, 65532, -1073741824, 2, 65532, 0, 65534, 65532, 0, 65535, 65532, 0, 0, 65533, 0, 1, 65533, 0, 2, 65533, 0, 65534, 65533, 0, 65535, 65533, 0, 0, 65534, 0, 0, 65535, 0 )
 }
 __meta__ = {
 "_editor_clip_": 0,
@@ -111,13 +114,19 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.0880036, 3 )
 [node name="Interactables" type="Spatial" parent="."]
 
 [node name="Key" parent="Interactables" instance=ExtResource( 15 )]
-transform = Transform( -1, 0, -8.74228e-08, -8.74228e-08, -4.37114e-08, 1, -3.82137e-15, 1, 4.37114e-08, 2.00571, 1.96004, -17.7055 )
+transform = Transform( -1, 0, -8.74228e-08, -8.74228e-08, -4.37114e-08, 1, -3.82137e-15, 1, 4.37114e-08, 1.97894, 2.11263, -17.6633 )
 
 [node name="Gate" parent="Interactables" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 3 )
 
 [node name="Door" parent="Interactables" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0707, 0, -44.0017 )
+
+[node name="Note" parent="Interactables" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -16 )
+
+[node name="Label" parent="Interactables/Note" index="1"]
+text = "This one cries piteously, trapped."
 
 [node name="DebugLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.97054, 0.087455, -0.224507, 0, 0.931799, 0.362975, 0.24094, -0.352282, 0.904348, -7.52279, 0, 0 )
@@ -127,3 +136,5 @@ wait_time = 0.001
 one_shot = true
 autostart = true
 [connection signal="timeout" from="DebugLight/HideOnStartTimer" to="DebugLight" method="hide"]
+
+[editable path="Interactables/Note"]

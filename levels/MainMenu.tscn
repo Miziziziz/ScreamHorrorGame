@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://ui/MainFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://ui/BlankSpotsRegular-dB4l.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://levels/MainMenu.gd" type="Script" id=3]
+[ext_resource path="res://sfx/sfx100v2_loop_ambient_03.ogg" type="AudioStream" id=4]
+[ext_resource path="res://levels/CalibrateMic.gd" type="Script" id=6]
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=1]
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -15,7 +17,7 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 1, 1, 1, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -27,16 +29,18 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxEmpty" id=7]
+[sub_resource type="StyleBoxEmpty" id=3]
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=5]
 size = 64
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="AudioStreamMicrophone" id=7]
+
+[sub_resource type="DynamicFont" id=6]
 size = 128
 font_data = ExtResource( 2 )
 
@@ -62,44 +66,44 @@ __meta__ = {
 [node name="Play" type="Button" parent="MainScreen"]
 margin_right = 238.0
 margin_bottom = 65.0
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/focus = SubResource( 7 )
-custom_styles/normal = SubResource( 3 )
-custom_fonts/font = SubResource( 6 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Play"
 
 [node name="MakingOf" type="Button" parent="MainScreen"]
 margin_top = 69.0
 margin_right = 238.0
 margin_bottom = 134.0
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/focus = SubResource( 7 )
-custom_styles/normal = SubResource( 3 )
-custom_fonts/font = SubResource( 6 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Making Of"
 
 [node name="Credits" type="Button" parent="MainScreen"]
 margin_top = 138.0
 margin_right = 238.0
 margin_bottom = 203.0
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/focus = SubResource( 7 )
-custom_styles/normal = SubResource( 3 )
-custom_fonts/font = SubResource( 6 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Credits"
 
 [node name="Exit" type="Button" parent="MainScreen"]
 margin_top = 207.0
 margin_right = 238.0
 margin_bottom = 272.0
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/focus = SubResource( 7 )
-custom_styles/normal = SubResource( 3 )
-custom_fonts/font = SubResource( 6 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Exit"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -130,23 +134,82 @@ metal gate model: https://opengameart.org/content/simple-jail-door
 spiked dungeon door: https://opengameart.org/content/spiked-dungeon-door
 metal screech, breaths: https://opengameart.org/content/horror-sound-effects-library
 footsteps and door: https://opengameart.org/content/50-rpg-sound-effects
+note textures: https://opengameart.org/content/free-note-texture
 textures from: https://3dtextures.me
-"
+End Monster from: https://opengameart.org/content/creeper
+more sfx: https://opengameart.org/content/100-cc0-sfx-2
+death sounds: https://opengameart.org/content/male-gruntyelling-sounds
+death sounds 2: https://opengameart.org/content/radio-death-sound"
 
 [node name="Back" type="Button" parent="CreditsScreen"]
 margin_left = 66.1807
 margin_top = 187.509
 margin_right = 304.181
 margin_bottom = 252.509
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/focus = SubResource( 7 )
-custom_styles/normal = SubResource( 3 )
-custom_fonts/font = SubResource( 6 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CalibrateMic" type="Control" parent="."]
+visible = false
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -20.0
+margin_right = 40.0
+margin_bottom = 20.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MicrophoneAudioStreamPlayer" type="AudioStreamPlayer" parent="CalibrateMic"]
+stream = SubResource( 7 )
+autoplay = true
+bus = "Record"
+
+[node name="Info" type="Label" parent="CalibrateMic"]
+margin_left = 111.618
+margin_top = -169.207
+margin_right = 677.618
+margin_bottom = 99.7934
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+text = "Press button and remain silent for a few seconds to calibrate microphone"
+autowrap = true
+
+[node name="Back" type="Button" parent="CalibrateMic"]
+margin_left = 88.5885
+margin_top = 110.228
+margin_right = 326.589
+margin_bottom = 175.228
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CalibrateButton" type="Button" parent="CalibrateMic"]
+margin_left = 474.0
+margin_top = 85.0
+margin_right = 589.0
+margin_bottom = 140.0
+text = "calibrate"
+
+[node name="Label" type="Label" parent="CalibrateMic"]
+margin_left = 484.0
+margin_top = 59.0
+margin_right = 588.0
+margin_bottom = 73.0
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 1.0
@@ -155,7 +218,7 @@ margin_left = -902.0
 margin_top = 54.0
 margin_right = -70.0
 margin_bottom = 478.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 6 )
 text = "Forlorn Screams of Agony Echoing Forevermore"
 autowrap = true
 
@@ -168,3 +231,26 @@ margin_right = 282.316
 margin_bottom = -35.8673
 custom_fonts/font = ExtResource( 1 )
 text = "Created by Miziziziz"
+
+[node name="Controls" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -702.372
+margin_top = 516.332
+margin_right = -388.372
+margin_bottom = 765.332
+custom_fonts/font = ExtResource( 1 )
+text = "-Controls-
+WASD to move
+mouse to look
+scream to see
+Esc to return to main menu
+E to use/pick up
+R to restart"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )

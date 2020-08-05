@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Bonecrack_03.wav-915f23cc6bef7c5cd8eaf4655f44062a.sample"
+
+[deps]
+
+source_file="res://sfx/death sounds/Bonecrack_03.wav"
+dest_files=[ "res://.import/Bonecrack_03.wav-915f23cc6bef7c5cd8eaf4655f44062a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

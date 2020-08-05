@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx100v2_footstep_wood_03.wav-23d385e55c36e80f3b03c7854c791b11.sample"
+
+[deps]
+
+source_file="res://sfx/footsteps2/sfx100v2_footstep_wood_03.wav"
+dest_files=[ "res://.import/sfx100v2_footstep_wood_03.wav-23d385e55c36e80f3b03c7854c791b11.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

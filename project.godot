@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="ScreamGame"
-run/main_scene="res://levels/FirstSaltRing.tscn"
+run/main_scene="res://levels/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [audio]
@@ -27,10 +27,13 @@ enable_audio_input=true
 
 LevelManager="*res://LevelManager.tscn"
 
+[debug]
+
+gdscript/warnings/return_value_discarded=false
+
 [display]
 
-window/size/width=1920
-window/size/height=1080
+window/size/width=1200
 window/size/fullscreen=true
 
 [input]

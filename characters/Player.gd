@@ -64,11 +64,15 @@ func _process(_delta):
 			$CanvasLayer/OpenDoor.show()
 		elif "Gate" in coll.name:
 			$CanvasLayer/OpenGate.show()
+		elif "Note" in coll.name:
+			$CanvasLayer/NoteDisplay.show()
+			$CanvasLayer/NoteDisplay.text = coll.get_node("Label").text
 
 func hide_ui_popups():
 	$CanvasLayer/OpenDoor.hide()
 	$CanvasLayer/PickupKey.hide()
 	$CanvasLayer/OpenGate.hide()
+	$CanvasLayer/NoteDisplay.hide()
 
 func pickup_key():
 	$KeyPickupSound.play()
@@ -119,7 +123,7 @@ func _physics_process(_delta):
 func kill():
 	if dead:
 		return
-	$DieSound.play()
 	hide_ui_popups()
 	dead = true
 	$"CanvasLayer2/You Died/AnimationPlayer".play("fadein")
+	$DeathSounds/AnimationPlayer.play("deathsounds")

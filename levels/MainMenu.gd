@@ -8,8 +8,10 @@ func _ready():
 	$MainScreen/Credits.connect("button_up", self, "open_credits")
 	$MainScreen/Exit.connect("button_up", self, "exit")
 	$CreditsScreen/Back.connect("button_up", self, "go_back_to_main_menu")
+	#$MainScreen/Calibrate.connect("button_up", self, "open_calibration")
+	$CalibrateMic/Back.connect("button_up", self, "go_back_to_main_menu")
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("exit"):
 		exit()
 
@@ -26,9 +28,14 @@ func exit():
 func open_credits():
 	$MainScreen.hide()
 	$CreditsScreen.show()
+	$CalibrateMic.hide()
 
 func go_back_to_main_menu():
 	$MainScreen.show()
 	$CreditsScreen.hide()
+	$CalibrateMic.hide()
 
-
+func open_calibration():
+	$MainScreen.hide()
+	$CreditsScreen.hide()
+	$CalibrateMic.show()

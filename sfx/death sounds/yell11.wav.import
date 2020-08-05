@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/yell11.wav-b45d0f8b37507a2132d551180a314f81.sample"
+
+[deps]
+
+source_file="res://sfx/death sounds/yell11.wav"
+dest_files=[ "res://.import/yell11.wav-b45d0f8b37507a2132d551180a314f81.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=false
+compress/mode=0
