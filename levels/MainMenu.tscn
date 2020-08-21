@@ -38,9 +38,9 @@ bg_color = Color( 0, 0, 0, 1 )
 size = 64
 font_data = ExtResource( 2 )
 
-[sub_resource type="AudioStreamMicrophone" id=7]
+[sub_resource type="AudioStreamMicrophone" id=6]
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=7]
 size = 128
 font_data = ExtResource( 2 )
 
@@ -53,6 +53,7 @@ __meta__ = {
 }
 
 [node name="MainScreen" type="GridContainer" parent="."]
+visible = false
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = 128.289
@@ -64,7 +65,7 @@ __meta__ = {
 }
 
 [node name="Play" type="Button" parent="MainScreen"]
-margin_right = 238.0
+margin_right = 311.0
 margin_bottom = 65.0
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
@@ -73,10 +74,21 @@ custom_styles/normal = SubResource( 4 )
 custom_fonts/font = SubResource( 5 )
 text = "Play"
 
-[node name="MakingOf" type="Button" parent="MainScreen"]
+[node name="CalibrateMic" type="Button" parent="MainScreen"]
 margin_top = 69.0
-margin_right = 238.0
+margin_right = 311.0
 margin_bottom = 134.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+text = "Calibrate Mic"
+
+[node name="MakingOf" type="Button" parent="MainScreen"]
+margin_top = 138.0
+margin_right = 311.0
+margin_bottom = 203.0
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
@@ -85,9 +97,9 @@ custom_fonts/font = SubResource( 5 )
 text = "Making Of"
 
 [node name="Credits" type="Button" parent="MainScreen"]
-margin_top = 138.0
-margin_right = 238.0
-margin_bottom = 203.0
+margin_top = 207.0
+margin_right = 311.0
+margin_bottom = 272.0
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
@@ -96,9 +108,9 @@ custom_fonts/font = SubResource( 5 )
 text = "Credits"
 
 [node name="Exit" type="Button" parent="MainScreen"]
-margin_top = 207.0
-margin_right = 238.0
-margin_bottom = 272.0
+margin_top = 276.0
+margin_right = 311.0
+margin_bottom = 341.0
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
@@ -111,41 +123,63 @@ __meta__ = {
 
 [node name="CreditsScreen" type="Control" parent="."]
 visible = false
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_left = 66.468
-margin_top = -196.777
-margin_right = 106.468
-margin_bottom = -156.777
+margin_right = 40.0
+margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="CreditsScreen"]
-margin_left = 79.0
-margin_right = 624.0
-margin_bottom = 217.0
+margin_left = 33.9795
+margin_top = 35.8672
+margin_right = 655.979
+margin_bottom = 712.867
 text = "-Credits-
-Made by Miziziziz
-statue 3d model from: https://opengameart.org/content/gravestones
-furniture models: https://opengameart.org/content/3td-furniture-pack
+Game made by Miziziziz
+
+assets:
+
+statue 3d model
+by rogerdv
+CC BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0/
+https://opengameart.org/content/gravestones
+textures added
+
+furniture models by Ron Kapaun/3TD Studios: https://opengameart.org/content/3td-furniture-pack
 key model: https://opengameart.org/content/key-collection
 metal gate model: https://opengameart.org/content/simple-jail-door
-spiked dungeon door: https://opengameart.org/content/spiked-dungeon-door
-metal screech, breaths: https://opengameart.org/content/horror-sound-effects-library
-footsteps and door: https://opengameart.org/content/50-rpg-sound-effects
-note textures: https://opengameart.org/content/free-note-texture
+
+spiked dungeon door
+by bobjh
+CC BY 4.0 https://creativecommons.org/licenses/by/4.0/
+https://opengameart.org/content/spiked-dungeon-door
+no changes made
+
+metal screech, breaths
+by Little Robot Sound Factory
+CC BY 3.0 https://creativecommons.org/licenses/by/3.0/
+https://opengameart.org/content/horror-sound-effects-library
+no changes made
+
+footsteps and door sfx by Kenney: https://opengameart.org/content/50-rpg-sound-effects
+note textures by Fatih Bilhaq: https://opengameart.org/content/free-note-texture
 textures from: https://3dtextures.me
-End Monster from: https://opengameart.org/content/creeper
+
+Creeper Monster:
+by piacenti
+CC BY 3.0 https://creativecommons.org/licenses/by/3.0/
+https://opengameart.org/content/creeper
+no changes made
+
 more sfx: https://opengameart.org/content/100-cc0-sfx-2
-death sounds: https://opengameart.org/content/male-gruntyelling-sounds
-death sounds 2: https://opengameart.org/content/radio-death-sound"
+death sounds by HaelDB: https://opengameart.org/content/male-gruntyelling-sounds
+death sounds 2 by Vinrax: https://opengameart.org/content/radio-death-sound"
 
 [node name="Back" type="Button" parent="CreditsScreen"]
-margin_left = 66.1807
-margin_top = 187.509
-margin_right = 304.181
-margin_bottom = 252.509
+margin_left = 45.306
+margin_top = 760.763
+margin_right = 283.306
+margin_bottom = 825.763
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
@@ -157,7 +191,6 @@ __meta__ = {
 }
 
 [node name="CalibrateMic" type="Control" parent="."]
-visible = false
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_top = -20.0
@@ -169,19 +202,9 @@ __meta__ = {
 }
 
 [node name="MicrophoneAudioStreamPlayer" type="AudioStreamPlayer" parent="CalibrateMic"]
-stream = SubResource( 7 )
+stream = SubResource( 6 )
 autoplay = true
 bus = "Record"
-
-[node name="Info" type="Label" parent="CalibrateMic"]
-margin_left = 111.618
-margin_top = -169.207
-margin_right = 677.618
-margin_bottom = 99.7934
-custom_styles/normal = SubResource( 4 )
-custom_fonts/font = SubResource( 5 )
-text = "Press button and remain silent for a few seconds to calibrate microphone"
-autowrap = true
 
 [node name="Back" type="Button" parent="CalibrateMic"]
 margin_left = 88.5885
@@ -198,29 +221,119 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CalibrateButton" type="Button" parent="CalibrateMic"]
-margin_left = 474.0
-margin_top = 85.0
-margin_right = 589.0
-margin_bottom = 140.0
-text = "calibrate"
+[node name="CalibrateLow" type="Button" parent="CalibrateMic"]
+margin_left = 211.703
+margin_top = -57.798
+margin_right = 326.703
+margin_bottom = -2.79797
+text = "calibrate low"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" type="Label" parent="CalibrateMic"]
-margin_left = 484.0
-margin_top = 59.0
-margin_right = 588.0
-margin_bottom = 73.0
+[node name="Info" type="Label" parent="CalibrateMic/CalibrateLow"]
+margin_left = -183.131
+margin_top = 1.62184
+margin_right = -1.13147
+margin_bottom = 62.6218
+custom_styles/normal = SubResource( 4 )
+text = "Stay silent, click button, wait a few seconds"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" type="Label" parent="."]
+[node name="Level" type="Label" parent="CalibrateMic/CalibrateLow"]
+margin_left = 130.556
+margin_top = 1.62184
+margin_right = 312.556
+margin_bottom = 62.6218
+custom_styles/normal = SubResource( 4 )
+text = "current level: 0.0"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CalibrateHigh" type="Button" parent="CalibrateMic"]
+margin_left = 211.703
+margin_top = 7.60919
+margin_right = 326.703
+margin_bottom = 62.6092
+text = "calibrate high"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Info" type="Label" parent="CalibrateMic/CalibrateHigh"]
+margin_left = -183.131
+margin_top = 1.62184
+margin_right = -1.13147
+margin_bottom = 62.6218
+custom_styles/normal = SubResource( 4 )
+text = "Start screaming into microphone, press button, keep screaming for a few seconds"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level" type="Label" parent="CalibrateMic/CalibrateHigh"]
+margin_left = 130.556
+margin_top = 1.62184
+margin_right = 312.556
+margin_bottom = 66.6218
+custom_styles/normal = SubResource( 4 )
+text = "current level: 0.0"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level2" type="Label" parent="CalibrateMic/CalibrateHigh"]
+margin_left = 174.918
+margin_top = 25.2186
+margin_right = 356.918
+margin_bottom = 90.2186
+custom_styles/normal = SubResource( 4 )
+text = "this must be higher than the one above"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MicrophoneVol" type="Label" parent="CalibrateMic"]
+margin_left = 29.3944
+margin_top = -102.673
+margin_right = 236.394
+margin_bottom = -88.6732
+text = "current microphone volume: 0.0"
+
+[node name="MicrohponeVolSlider" type="HSlider" parent="CalibrateMic"]
+margin_left = 28.0
+margin_top = -124.0
+margin_right = 680.0
+margin_bottom = -108.0
+max_value = 1.0
+step = 0.0
+editable = false
+scrollable = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -902.0
 margin_top = 54.0
 margin_right = -70.0
 margin_bottom = 478.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "Forlorn Screams of Agony Echoing Forevermore"
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Signature" type="Label" parent="."]
 anchor_top = 1.0

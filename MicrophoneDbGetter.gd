@@ -9,7 +9,7 @@ var effect : AudioEffectRecord
 var recording
 var power = 0
 
-var can_see_if_power_above = 0.01
+#var can_see_if_power_above = 0.01
 onready var screen_cover = $CanvasLayer/ScreenCover
 
 var can_see = false
@@ -26,43 +26,21 @@ func _ready():
 	lastime_start = OS.get_ticks_msec()
 	is_recording = true
 
+var last_samples = []
 func _physics_process(_delta):
 	if player.dead:
 		screen_cover.show()
 		can_see = false
-		
 		return
-	if OS.get_ticks_msec() - lastime_start > 80 and is_recording == true:
-		lastime_end = OS.get_ticks_msec()
-		effect.set_recording_active(false)
-		recording = effect.get_recording()
-		is_recording = false
-		if recording == null: return
-		var data = recording.get_data()
-		#var s = 0
-#		for i in range(min(44,data.size()),data.size()):
-#			s += data[i] * data[i]
-#		power = sqrt(s/(max(data.size(),45)-44))
-
-
-		var avg = 0.0
-		for i in len(data):
-			var b = data[i]
-			var u = (b + 128) & 0xFF
-			var s = float(u - 128) / 128.0
-			avg += s
-		avg /= len(data)
-		avg = clamp(avg, 0.0, 1.0)
-		#avg = linear2db(avg)
-		power = avg
 	
-	if OS.get_ticks_msec() - lastime_end > 10 and is_recording == false:
-		effect.set_recording_active(true)
-		lastime_start = OS.get_ticks_msec()
-		is_recording = true
+	var power = AudioServer.get_bus_peak_volume_left_db(AudioServer.get_bus_index("Record"), 0)
+	power = clamp(db2linear(power), 0.0, 1.0)
 	
-	#print(power, " ", power > can_see_if_power_above)
-	can_see = power > can_see_if_power_above
+	last_samples.append(power)
+	if last_samples.size() > 10:
+		last_samples.pop_front()
+	print(get_avg_power(), " ", LevelManager.mic_base)
+	can_see = get_avg_power() > LevelManager.mic_base
 	if playtest:
 		can_see = Input.is_action_pressed("scream")
 
@@ -70,3 +48,10 @@ func _physics_process(_delta):
 		screen_cover.hide()
 	else:
 		screen_cover.show()
+
+func get_avg_power():
+	var avg = 0.0
+	for sample in last_samples:
+		avg += sample
+	avg /= last_samples.size()
+	return avg

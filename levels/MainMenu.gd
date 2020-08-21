@@ -7,9 +7,11 @@ func _ready():
 	$MainScreen/MakingOf.connect("button_up", self, "go_to_making_of")
 	$MainScreen/Credits.connect("button_up", self, "open_credits")
 	$MainScreen/Exit.connect("button_up", self, "exit")
-	$CreditsScreen/Back.connect("button_up", self, "go_back_to_main_menu")
-	#$MainScreen/Calibrate.connect("button_up", self, "open_calibration")
-	$CalibrateMic/Back.connect("button_up", self, "go_back_to_main_menu")
+	$CreditsScreen/Back.connect("button_up", self, "open_main_menu")
+	$MainScreen/CalibrateMic.connect("button_up", self, "open_calibration")
+	$CalibrateMic/Back.connect("button_up", self, "open_main_menu")
+	
+	open_main_menu()
 
 func _process(_delta):
 	if Input.is_action_just_pressed("exit"):
@@ -26,16 +28,18 @@ func exit():
 	get_tree().quit()
 
 func open_credits():
-	$MainScreen.hide()
+	hide_all()
 	$CreditsScreen.show()
-	$CalibrateMic.hide()
 
-func go_back_to_main_menu():
+func open_main_menu():
+	hide_all()
 	$MainScreen.show()
-	$CreditsScreen.hide()
-	$CalibrateMic.hide()
 
 func open_calibration():
-	$MainScreen.hide()
-	$CreditsScreen.hide()
+	hide_all()
 	$CalibrateMic.show()
+
+func hide_all():
+	$CalibrateMic.hide()
+	$CreditsScreen.hide()
+	$MainScreen.hide()

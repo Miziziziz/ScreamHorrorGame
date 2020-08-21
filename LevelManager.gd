@@ -12,7 +12,17 @@ var level_list = [
 	"res://levels/EndLevel.tscn"
 ]
 
-var mic_base = 0.0
+var mic_low = 0.045
+func set_mic_low(_mic_low:float):
+	mic_low = _mic_low
+	mic_base = (mic_high - mic_low) / 2.0 + mic_low
+
+var mic_high = 0.075
+func set_mic_high(_mic_high:float):
+	mic_high = _mic_high
+	mic_base = (mic_high - mic_low) / 2.0 + mic_low
+
+var mic_base = 0.065
 
 var ind = 0
 func load_first_level():
